@@ -13,15 +13,19 @@ let stacks = {
   c: []
 };
 
+// var lastIndex = stacks[startStack].length - 1;
+// stacks['a'][lastIndex]
+
 function printStacks() {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+function movePiece(piece, endStack) {
   // Your code here
-
+  stacks[endStack].push(piece);
+  console.log(stacks[endStack] + ' & ' + piece + ': pieces pushed');
 }
 
 function isLegal() {
@@ -29,14 +33,39 @@ function isLegal() {
 
 }
 
-function checkForWin() {
+function checkForWin(endStack) {
   // Your code here
+  if (stacks[endStack].length === 4) {
+    console.log('winwinwin');
+  }
 
+  // console.log(stacks[endStack].length + 'hey');
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
+  // // Your code here
+  var lastIndexOfStart;
+  var lastIndexOfEnd;
+  //the variable assignment below hold last item from startStack
+  lastIndexOfStart = stacks[startStack][stacks[startStack].length - 1];
+  //the variable assignment below holds last item in endStack
+  lastIndexOfEnd = stacks[endStack][stacks[endStack].length - 1];
 
+// a random array to explain how the last number is accessed
+// var array = [1, 2, 3, 4];
+// console.log(array[array.length - 1]);
+
+//this statement checks to see is a move is legal
+  if (!lastIndexOfEnd || lastIndexOfStart < lastIndexOfEnd) {
+    var poppedPiece = stacks[startStack].pop();
+    movePiece(poppedPiece, endStack);
+    checkForWin(endStack);
+  } else {
+    console.log('invalid move');
+  }
+
+  // console.log(stacks.a.pop([-1]));
+  // console.log(stacks.a.slice(-1));
 }
 
 function getPrompt() {
