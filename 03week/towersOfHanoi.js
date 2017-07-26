@@ -32,8 +32,6 @@ function isLegal(start, end, startStack, endStack) {
   if (!end || start < end) {
     return true;
     // var poppedPiece = stacks[startStack].pop();
-    // movePiece(poppedPiece, endStack);
-    // checkForWin(endStack);
   } else {
     console.log('invalid move');
     return false;
@@ -59,7 +57,11 @@ function towersOfHanoi(startStack, endStack) {
   //the variable assignment below holds last item in endStack
   lastIndexOfEnd = stacks[endStack][stacks[endStack].length - 1];
 
-  isLegal(lastIndexOfStart, lastIndexOfEnd, startStack, endStack);
+  if (isLegal(lastIndexOfStart, lastIndexOfEnd, startStack, endStack)) {
+    movePiece(poppedPiece, endStack);
+    checkForWin(endStack);
+
+  }
 }
 // a random array to explain how the last number is accessed
 // var array = [1, 2, 3, 4];
