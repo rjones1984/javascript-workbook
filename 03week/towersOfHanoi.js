@@ -38,6 +38,7 @@ function isLegal(start, end, startStack, endStack) {
   }
 }
 
+
 function checkForWin(endStack) {
   // Your code here
   if (stacks[endStack].length === 4) {
