@@ -40,8 +40,7 @@ function isLegal(start, end, startStack, endStack) {
 
 function checkForWin(endStack) {
   // Your code here
-  var stackLength = stacks[endStack].length
-  if (stackLength === 4) {
+  if (stacks[endStack].length === 4) {
     console.log('Win Win Winnnnn!!!');
   }
 
@@ -52,18 +51,22 @@ function towersOfHanoi(startStack, endStack) {
   // // Your code here
   var lastIndexOfStart;
   var lastIndexOfEnd;
-  //the variable assignment below holds last item from startStack
+  //the variable assignment below hold last item from startStack
   lastIndexOfStart = stacks[startStack][stacks[startStack].length - 1];
   //the variable assignment below holds last item in endStack
   lastIndexOfEnd = stacks[endStack][stacks[endStack].length - 1];
 
-  isLegal(lastIndexOfStart, lastIndexOfEnd, startStack, endStack);
-}
 // a random array to explain how the last number is accessed
 // var array = [1, 2, 3, 4];
 // console.log(array[array.length - 1]);
 
-//this function call checks to see is a move is legal
+//this statement checks to see is a move is legal
+  isLegal(lastIndexOfStart, lastIndexOfEnd, startStack, endStack);
+
+
+  // console.log(stacks.a.pop([-1]));
+  // console.log(stacks.a.slice(-1));
+}
 
 function getPrompt() {
   printStacks();
