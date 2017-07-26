@@ -30,11 +30,13 @@ function movePiece(piece, endStack) {
 function isLegal(start, end, startStack, endStack) {
   // Your code here
   if (!end || start < end) {
-    var poppedPiece = stacks[startStack].pop();
-    movePiece(poppedPiece, endStack);
-    checkForWin(endStack);
+    return true;
+    // var poppedPiece = stacks[startStack].pop();
+    // movePiece(poppedPiece, endStack);
+    // checkForWin(endStack);
   } else {
     console.log('invalid move');
+    return false;
   }
 }
 
