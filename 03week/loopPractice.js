@@ -39,9 +39,11 @@ function accessPerson() {
 accessPerson();
 // Then use a for...in loop and if state to console.log the value associated with the key birthDate.
 function accessBd() {
+  var prop = "birthDate";
   for (var prop in person) {
-    console.log(person.birthDate);
-    return;
+    if (prop === "birthDate") {
+      console.log(person[prop]);
+    }
   }
 }
 
