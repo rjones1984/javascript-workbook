@@ -22,12 +22,14 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece(piece, endStack) {
+function movePiece(startStack, endStack, lastIndexOfStart) {
   // Your code here
+  var piece = lastIndexOfStart;
+  stacks[startStack].pop(piece);
   stacks[endStack].push(piece);
 }
 
-function isLegal(start, end, startStack, endStack) {
+function isLegal(start, end) {
   // Your code here
   if (!end || start < end) {
     return true;
@@ -57,8 +59,8 @@ function towersOfHanoi(startStack, endStack) {
   //the variable assignment below holds last item in endStack
   lastIndexOfEnd = stacks[endStack][stacks[endStack].length - 1];
 
-  if (isLegal(lastIndexOfStart, lastIndexOfEnd, startStack, endStack)) {
-    movePiece(poppedPiece, endStack);
+  if (isLegal(lastIndexOfStart, lastIndexOfEnd)) {
+    movePiece(startStack, endStack, lastIndexOfStart);
     checkForWin(endStack);
 
   }
