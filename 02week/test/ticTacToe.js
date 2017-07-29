@@ -44,10 +44,12 @@ function horizontalWin() {
       (board[1][0] === 'X') && (board[1][1] === 'X') && (board[1][2] === 'X') ||
       (board[2][0] === 'X') && (board[2][1] === 'X') && (board[2][2] === 'X')) {
         printWinner('X');
+        return true;
   } else if ((board[0][0] === 'O') && (board[0][1] === 'O') && (board[0][2] === 'O') ||
             (board[1][0] === 'O') && (board[1][1] === 'O') && (board[1][2] === 'O') ||
             (board[2][0] === 'O') && (board[2][1] === 'O') && (board[2][2] === 'O')) {
         printWinner('O');
+        return true;
   }
 }
 
@@ -58,10 +60,12 @@ function verticalWin() {
       (board[0][1] === 'X') && (board[1][1] === 'X') && (board[2][1] === 'X') ||
       (board[0][2] === 'X') && (board[1][2] === 'X') && (board[2][2] === 'X')) {
         printWinner('X');
+        return true;
   } else if ((board[0][0] === 'O') && (board[0][1] === 'O') && (board[0][2] === 'O') ||
             (board[1][0] === 'O') && (board[1][1] === 'O') && (board[1][2] === 'O') ||
             (board[2][0] === 'O') && (board[2][1] === 'O') && (board[2][2] === 'O')) {
-        printWinner('O');
+        return printWinner('O');
+        return true;
   }
 }
 
@@ -69,8 +73,11 @@ function diagonalWin() {
   // Your code here
   if ((board[0][0] === 'X') && (board[1][1] === 'X') && (board[2][2] === 'X')) {
     printWinner('X');
+    return true;
   } else if ((board[0][0] === 'O') && (board[1][1] === 'O') && (board[2][2] === 'O')) {
     printWinner('O');
+    return true;
+
   }
 }
 
@@ -78,6 +85,7 @@ function checkForWin() {
   horizontalWin();
   verticalWin();
   diagonalWin();
+  return true;
   // Your code here
 }
 
