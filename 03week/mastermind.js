@@ -11,38 +11,30 @@ let board = [];
 let solution = 'abcd';
 let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 let guessArray = [];
-let solutionArray = [];
-let matchCheckArray = [];
+let solutionArray = solution.split("");
 
-function printBoard() {
+function printBoard() {1
   for (let i = 0; i < board.length; i++) {
     console.log(board[i]);
   }
 }
 
-// function generateSolution() {
-//   for (let i = 0; i < 4; i++) {
-//     const randomIndex = getRandomInt(0, letters.length);
-//     solution += letters[randomIndex];
-//   }
-// }
-//
-// function getRandomInt(min, max) {
-//   return Math.floor(Math.random() * (max - min)) + min;
-// }
-
 function generateHint(guessArray) {
   // your code here
-  solutionArray = solution.split("");
-  for (var i = 0; i < solutionArray.length; i++) {
-    // console.log(solutionArray.indexOf(solutionArray[i]));
-    for (var j = 0; j < guessArray.length; j++) {
+  let matchCheckArray = [];
+
+  for (let i = 0; i < 4; i++) {
+    let solIndex = solutionArray.indexOf(solutionArray[i]);
+    for (let j = 0; j < 4; j++) {
+      console.log('I: ' + solutionArray[i] + ' ' + 'J: ' + guessArray[j]);
+      let guessIndex = guessArray.indexOf(guessArray[j]);
       if (solutionArray[i] === guessArray[j]) {
-        matchCheckArray.push(solutionArray.indexOf(solutionArray[i]));
-        console.log(matchCheckArray);
+        guessIndex ++;
+        console.log(guessArray[j] + guessIndex + ' [j], index');
       }
     }
-  }
+  } console.log(guessArray);
+  return;
 }
 
 function mastermind(guess) {
