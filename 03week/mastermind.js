@@ -21,20 +21,25 @@ function printBoard() {1
 
 function generateHint(guessArray) {
   // your code here
-  let matchCheckArray = [];
+  let solutionArrayItem;
+  let guessArrayItem;
+  //this for loop loops through the solution array
+  for (let i = 0; i < solutionArray.length; i++) {
+    solutionArrayItem = solutionArray[i];
+    console.log(solutionArray[i]);
+  }
+  //this loops through the guess array
+  for (let i = 0; i < guessArray.length; i++) {
+    guessArrayItem = guessArray[i];
+    console.log(guessArray[i]);
+  }
 
-  for (let i = 0; i < 4; i++) {
-    let solIndex = solutionArray.indexOf(solutionArray[i]);
-    for (let j = 0; j < 4; j++) {
-      console.log('I: ' + solutionArray[i] + ' ' + 'J: ' + guessArray[j]);
-      let guessIndex = guessArray.indexOf(guessArray[j]);
-      if (solutionArray[i] === guessArray[j]) {
-        guessIndex ++;
-        console.log(guessArray[j] + guessIndex + ' [j], index');
-      }
-    }
-  } console.log(guessArray);
-  return;
+
+  //logic to compare array items and operate on those to generate hint
+  if (solutionArrayItem === guessArrayItem) {
+    console.log('match Solution: ' + solutionArrayItem + 'Guess: ' + guessArray[i]);
+  }
+
 }
 
 function mastermind(guess) {
