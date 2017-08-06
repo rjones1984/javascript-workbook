@@ -46,6 +46,23 @@ function some(arr, callback) {
 
 function every(arr, callback) {
   // Your code here
+  function every(arr, callback) {
+
+  let results = [];
+  for (let i = 0; i < arr.length; i++) {
+    results.push(callback(arr[i]))
+  }
+  return results;
+}
+
+function startsWithB(name) {
+  if (name.charAt(0) === 'b') {
+    return name;
+  }
+}
+
+every(['becky', 'blenda', 'suzie', 'dirna', 'plippa', 'bocky', 'furma'], startsWithB);
+
 }
 
 if (typeof describe === 'function') {
