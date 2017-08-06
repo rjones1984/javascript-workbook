@@ -2,17 +2,43 @@
 
 const assert = require('assert');
 
-function forEach(arr, callback) {
-  // Your code here
+function forEach(array, callback) {
+  for (let i = 0; i < array.length; i++) {
+    callback();
+  }
 }
 
 function map(arr, callback) {
   // Your code here
+  let results = [];
+  for (let i = 0; i < arr.length; i++) {
+    results.push(callback(arr[i]));
+  }
+  return results;
 }
+
+function add(num) {
+  return num + num;
+}
+
+map([1,2,3,4], add );
 
 function filter(arr, callback) {
   // Your code here
+  let results = [];
+  for (let i = 0; i < arr.length; i++) {
+    results.push(callback(arr[i]));
+  }
+  return results;
 }
+
+function moreThan2(num) {
+  if (num > 2){
+    return num;
+  }
+}
+
+filter([1,2,3,4,5,6,7], moreThan2 );
 
 function some(arr, callback) {
   // Your code here
