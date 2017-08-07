@@ -41,8 +41,22 @@ function moreThan2(num) {
 filter([1,2,3,4,5,6,7], moreThan2 );
 
 function some(arr, callback) {
-  // Your code here
+  for (let i = 0; i < arr.length; i++) {
+    if (callback(arr[i])) {
+      return true;
+    } 
+  }
+  return;
 }
+
+function greaterThan10(num) {
+  return num > 10;
+}
+
+some([9,11,8,1,3], greaterThan10);
+
+
+//every() method unde the hood test conditions
 // 4) should return true if at all passes the predicate test
 // 5) should return false if any item fails the predicate test
 // 6) should stop at the first item that fails the predicate test
@@ -54,7 +68,7 @@ function every(arr, callback) {
   for (let i = 0; i < arr.length; i++) {
     if (!callback(arr[i])) {
       return false;
-    } 
+    }
   }
   return;
 }
