@@ -47,26 +47,28 @@ function some(arr, callback) {
 // 5) should return false if any item fails the predicate test
 // 6) should stop at the first item that fails the predicate test
 
-function every(arr, callback) {
-  // Your code here
-  function every(arr, callback) {
+//the purpose of the every() method is to return true only when each array item === true, else: false
 
-  let results = [];
+function every(arr, callback) {
+
   for (let i = 0; i < arr.length; i++) {
-    results.push(callback(arr[i]))
+    if (!callback(arr[i])) {
+      return false;
+    } 
   }
-  return results;
+  return;
 }
 
 function startsWithB(name) {
   if (name.charAt(0) === 'b') {
-    return name;
+    return true;
+  } else if (name.charAt(0) !== 'b') {
+    return false;
   }
 }
 
 every(['becky', 'blenda', 'suzie', 'dirna', 'plippa', 'bocky', 'furma'], startsWithB);
 
-}
 
 if (typeof describe === 'function') {
 
