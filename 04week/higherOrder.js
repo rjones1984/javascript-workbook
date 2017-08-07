@@ -44,7 +44,7 @@ function some(arr, callback) {
   for (let i = 0; i < arr.length; i++) {
     if (callback(arr[i])) {
       return true;
-    } 
+    }
   }
   return;
 }
@@ -53,7 +53,7 @@ function greaterThan10(num) {
   return num > 10;
 }
 
-some([9,11,8,1,3], greaterThan10);
+some([9,9,8,1,3], greaterThan10);
 
 
 //every() method unde the hood test conditions
