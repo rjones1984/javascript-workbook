@@ -27,15 +27,15 @@ function filter(arr, callback) {
   // Your code here
   let results = [];
   for (let i = 0; i < arr.length; i++) {
-    results.push(callback(arr[i]));
+    if (callback(arr[i])) {
+      results.push(arr[i]);
+    }
   }
   return results;
 }
 
 function moreThan2(num) {
-  if (num > 2){
-    return num;
-  }
+  return num > 2;
 }
 
 filter([1,2,3,4,5,6,7], moreThan2 );
@@ -43,6 +43,9 @@ filter([1,2,3,4,5,6,7], moreThan2 );
 function some(arr, callback) {
   // Your code here
 }
+// 4) should return true if at all passes the predicate test
+// 5) should return false if any item fails the predicate test
+// 6) should stop at the first item that fails the predicate test
 
 function every(arr, callback) {
   // Your code here
