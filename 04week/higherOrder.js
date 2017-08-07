@@ -2,25 +2,87 @@
 
 const assert = require('assert');
 
-function forEach(arr, callback) {
-  // Your code here
+function forEach(array, callback) {
+  for (let i = 0; i < array.length; i++) {
+    callback();
+  }
 }
 
 function map(arr, callback) {
   // Your code here
+  let results = [];
+  for (let i = 0; i < arr.length; i++) {
+    results.push(callback(arr[i]));
+  }
+  return results;
 }
+
+function add(num) {
+  return num + num;
+}
+
+map([1,2,3,4], add );
 
 function filter(arr, callback) {
   // Your code here
+  let results = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (callback(arr[i])) {
+      results.push(arr[i]);
+    }
+  }
+  return results;
 }
+
+function moreThan2(num) {
+  return num > 2;
+}
+
+filter([1,2,3,4,5,6,7], moreThan2 );
 
 function some(arr, callback) {
-  // Your code here
+  for (let i = 0; i < arr.length; i++) {
+    if (callback(arr[i])) {
+      return true;
+    }
+  }
+  return;
 }
 
-function every(arr, callback) {
-  // Your code here
+function greaterThan10(num) {
+  return num > 10;
 }
+
+some([9,9,8,1,3], greaterThan10);
+
+
+//every() method unde the hood test conditions
+// 4) should return true if at all passes the predicate test
+// 5) should return false if any item fails the predicate test
+// 6) should stop at the first item that fails the predicate test
+
+//the purpose of the every() method is to return true only when each array item === true, else: false
+
+function every(arr, callback) {
+
+  for (let i = 0; i < arr.length; i++) {
+    if (!callback(arr[i])) {
+      return false;
+    }
+  }
+  return;
+}
+
+function startsWithB(name) {
+  if (name.charAt(0) === 'b') {
+    return true;
+  } else if (name.charAt(0) !== 'b') {
+    return false;
+  }
+}
+
+every(['becky', 'blenda', 'suzie', 'dirna', 'plippa', 'bocky', 'furma'], startsWithB);
+
 
 if (typeof describe === 'function') {
 
