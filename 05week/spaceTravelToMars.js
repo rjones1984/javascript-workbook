@@ -18,7 +18,8 @@ class CrewMember {
   }
   enterShip(ship) {
     this.ship = ship;
-    ship.crew.push(this);
+    return ship.crew.push(this);
+    // return;
   }
 }
 
@@ -30,15 +31,16 @@ class Ship {
     this.crew = [];
   }
   missionStatement() {
-    console.log();
-
+    if (this.crew.length === 0) {
+      return "Can't perform a mission yet.";
+    }
+    return this.ability;
+    // return 'missionStatement';
   }
 }
 // Your code here
-let dan = new CrewMember ('Dan', 'janitor', 'telekenisis');
-let hermes = new Ship('Hermes', 'Main Ship', 'Interplanetary Space Travel');
-let enteredShip = dan.enterShip(hermes);
-console.log(enteredShip);
+// let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+// console.log(mav.missionStatement());
 
 //tests
 if (typeof describe === 'function'){
