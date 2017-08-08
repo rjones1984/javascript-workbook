@@ -28,13 +28,23 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(guess) {
   // your code here
+  //access properties of guess string
+  for (let i = 0; i < solution.length; i ++) {
+    console.log(guess[i]);
+  }
+  //access properties of solution string
+  //compare characters and location
+  //increment points for character AND location match
+  //increment points for ONLY character match
+
 }
 
 function mastermind(guess) {
   solution = 'abcd'; // Comment this out to generate a random solution
   // your code here
+  generateHint(guess);
 }
 
 
