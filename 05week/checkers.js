@@ -70,6 +70,17 @@ function Board() {
 
     }
   }
+  //Selecting a particular checker
+  this.selectChecker = function (row, column) {
+    return this.grid[row][column];
+  };
+  //Killing a checker
+  this.killChecker = function (position) {
+    const dyingChecker = this.selectChecker(position[0],position[1]);
+    const index = this.checkers.indexOf(dyingChecker);
+    this.checkers.splice(index,1);
+    this.grid[position[0]][position[1]] = null;
+  };
 }
 
 function Game() {
@@ -81,6 +92,22 @@ function Game() {
     // Your code here
     this.board.createCheckers();
   };
+
+  this.moveChecker = function(start, end){
+    const startX = parseInt(start[0]);
+    const startY = parseInt(start[1]);
+    const endX = parseInt(end[0]);
+    const endY = parseInt(end[1]);
+
+    const checker = this.board.selectChecker(start[0], start[1]);
+
+    this.board.grid[ endX ][ endY ] = checker;
+    this.board.grid[startX][startY] = null;
+
+    if (Math.sqrt((endX - startX)^2 + (endY - startY)^2) >= 2) {
+      this.board.killChecker([(endX + startX) / 2, (endY + startY) / 2]);
+    }
+  }
 }
 
 function getPrompt() {
