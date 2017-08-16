@@ -44,32 +44,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('[data-cell]').forEach((div) => {
       div.addEventListener('click', (e) => {
-        let coord = div.getAttribute('data-cell'); //the numbers from the data-cells
+        let coord = parseInt(div.getAttribute('data-cell')); //the numbers from the data-cells
         coords.push(coord); //on each click, a cell number is pushed to 'coords'
         // console.log(coords);
         if (toggle === true) {
           index1.push(coord);
           index1.sort();
-          console.log('index 1: ' + index1);
+          // console.log('index 1: ' + index1);
         } else if (!toggle) {
           index2.push(coord);
           index2.sort();
-          console.log('index 2: ' + index2);
+          // console.log('index 2: ' + index2);
         }
         for (let i = 0; i < wins.length; i++) {
           let win = wins[i]; //equal to an array of cell numbers from the wins array
-            console.log(win);
-          for (let j = 0; j < win.length; j++) {
-            let bit = win[j]; //equal to ONE cell number from ONE win array, from wins
-            console.log(bit);
-
-          }
+          let playerIndex = toggle ? index1 : index2;
+            console.log("win:         " + win);
+            console.log("playerIndex: " + playerIndex);
+            if (playerIndex === win) {
+              console.log('someone won');
+            }
+          // for (let j = 0; j < win.length; j++) {
+          //   let bit = win[j]; //equal to ONE cell number from ONE win array, from wins
+          //   // console.log(bit);
+          // }
         }
-        // if (toggle === true) {
-        //   // console.log(toggle);
-        // } else {
-        //   console.log(!toggle);
-        // }
       });
     });
 
