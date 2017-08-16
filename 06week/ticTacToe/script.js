@@ -39,19 +39,30 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     let coords = [];
+    let index1 = [];
+    let index2 = [];
 
     document.querySelectorAll('[data-cell]').forEach((div) => {
       div.addEventListener('click', (e) => {
-        let coord = div.getAttribute('data-cell');
-        coords.push(coord);
+        let coord = div.getAttribute('data-cell'); //the numbers from the data-cells
+        coords.push(coord); //on each click, a cell number is pushed to 'coords'
         // console.log(coords);
-        for (let i = 0; i <= wins.length; i++) {
-          let win = wins[i];
+        if (toggle === true) {
+          index1.push(coord);
+          index1.sort();
+          console.log('index 1: ' + index1);
+        } else if (!toggle) {
+          index2.push(coord);
+          index2.sort();
+          console.log('index 2: ' + index2);
+        }
+        for (let i = 0; i < wins.length; i++) {
+          let win = wins[i]; //equal to an array of cell numbers from the wins array
             console.log(win);
-          //"cannot read property 'length' of undefined"
-          for (let j = 0; j <= win.length; j++) {
-            let bit = win[j];
+          for (let j = 0; j < win.length; j++) {
+            let bit = win[j]; //equal to ONE cell number from ONE win array, from wins
             console.log(bit);
+
           }
         }
         // if (toggle === true) {
