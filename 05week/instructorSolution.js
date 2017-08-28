@@ -8,8 +8,13 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
+function Checker(color) {
   // Your code here
+  if (color === 'white'){
+    this.symbol = String.fromCharCode(0x125CB);
+  } else {
+    this.symbol = String.fromCharCode(0x125CF);
+  }
 }
 
 function Board() {
@@ -53,11 +58,14 @@ function Board() {
   };
 
   // Your code here
+  // create a master list of checkers
   this.checkers = [];
-
+  //Creating the checker instances
+  //add them in loop to checkers, then add to grid
   this.createCheckers = function() {
-    const whitePositions = [[0, 1], [0, 3], [0, 5], [0, 7],
-    [1, 0], [1 ,2], [1, 4], [1, 6],
+    console.log('heyooo!!');
+    const whitePositions =  [[0, 1], [0, 3], [0, 5], [0, 7],
+    [1, 0], [1, 2], [1, 4], [1, 6],
     [2, 1], [2, 3], [2, 5], [2, 7]];
     const blackPositions = [[5, 0], [5, 2], [5, 4], [5, 6],
     [6, 1], [6, 3], [6, 5], [6, 7],
