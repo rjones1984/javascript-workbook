@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     let coords = [];
-    let index1 = [];
+    let index1 = [];//array for x
     let index2 = [];
 
     document.querySelectorAll('[data-cell]').forEach((div) => {
@@ -64,6 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (playerIndex === win) {
               console.log('someone won');
             }
+            console.log("index 1: " + index1 + " & index 2: " + index2);
+            console.log(win);
           // for (let j = 0; j < win.length; j++) {
           //   let bit = win[j]; //equal to ONE cell number from ONE win array, from wins
           //   // console.log(bit);
